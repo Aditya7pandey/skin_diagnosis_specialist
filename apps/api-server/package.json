@@ -9,8 +9,8 @@
     "dev": "pnpm run build && pnpm run start"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
-    "@repo/db":"workspace:*"
+    "@repo/db": "workspace:*",
+    "@repo/typescript-config": "workspace:*"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,9 @@
   "dependencies": {
     "@deepgram/sdk": "^5.7.0",
     "@google/genai": "^2.16.0",
+    "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.6",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "groq-sdk": "^1.5.0"
