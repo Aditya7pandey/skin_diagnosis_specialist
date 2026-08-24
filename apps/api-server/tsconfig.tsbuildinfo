@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/textToSpeech.ts","./src/video.ts","./src/routes/brain.route.ts"],"version":"5.9.2"}
+{"root":["./src/index.ts","./src/textToSpeech.ts","./src/video.ts","./src/controllers/auth.controller.ts","./src/controllers/consultation.controller.ts","./src/lib/uploads.ts","./src/middleware/auth.middleware.ts","./src/routes/auth.routes.ts","./src/routes/consultation.routes.ts","./src/services/brain.service.ts","./src/services/stt.service.ts","./src/services/tts.service.ts","./src/services/vision.service.ts"],"version":"5.9.2"}

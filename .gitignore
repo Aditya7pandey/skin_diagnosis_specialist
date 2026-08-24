@@ -27,6 +27,9 @@ out/
 build
 dist
 
+# User uploads & generated TTS audio
+uploads/
+
 
 # Debug
 npm-debug.log*

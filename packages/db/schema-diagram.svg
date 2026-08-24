@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 520" width="1240" height="520">
+  <defs>
+    <style>
+      .eyebrow { font: 500 12px Menlo, Consolas, "DejaVu Sans Mono", monospace; fill: #8f8f8f; letter-spacing: 1px; }
+      .title { font: 600 30px Arial, Helvetica, "DejaVu Sans", sans-serif; fill: #171717; letter-spacing: -1px; }
+      .entity { font: 600 15px Arial, Helvetica, "DejaVu Sans", sans-serif; fill: #171717; letter-spacing: -0.3px; }
+      .tbl { font: 500 10px Menlo, Consolas, "DejaVu Sans Mono", monospace; fill: #a1a1a1; letter-spacing: 1px; }
+      .fname { font: 500 12.5px Menlo, Consolas, "DejaVu Sans Mono", monospace; fill: #171717; }
+      .frel { font: italic 500 12.5px Menlo, Consolas, "DejaVu Sans Mono", monospace; fill: #8f8f8f; }
+      .ftype { font: 400 11.5px Menlo, Consolas, "DejaVu Sans Mono", monospace; fill: #8f8f8f; }
+      .chip { font: 700 9px Arial, Helvetica, sans-serif; }
+      .lbl { font: 400 11px Arial, Helvetica, sans-serif; fill: #8f8f8f; }
+      .card { fill: #ffffff; stroke: #ebebeb; stroke-width: 1; }
+      .zebra { fill: #fafafa; }
+      .conn { fill: none; stroke: #171717; stroke-width: 1.2; }
+      .cardlbl { font: 500 10px Menlo, Consolas, "DejaVu Sans Mono", monospace; fill: #171717; }
+    </style>
+  </defs>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="1240" height="520" fill="#fafafa"/>
+
+  <!-- header -->
+  <text class="eyebrow" x="60" y="46">DERMA · PRISMA SCHEMA · POSTGRESQL (NEON)</text>
+  <text class="title" x="60" y="82">Database schema</text>
+
+  <!-- legend -->
+  <g>
+    <rect x="760" y="60" width="26" height="15" rx="7.5" fill="#171717"/>
+    <text class="chip" x="773" y="71" fill="#ffffff" text-anchor="middle">PK</text>
+    <text class="lbl" x="792" y="71">primary</text>
+
+    <rect x="854" y="60" width="26" height="15" rx="7.5" fill="#ffffff" stroke="#0070f3"/>
+    <text class="chip" x="867" y="71" fill="#0070f3" text-anchor="middle">FK</text>
+    <text class="lbl" x="886" y="71">foreign</text>
+
+    <rect x="946" y="60" width="26" height="15" rx="7.5" fill="#ffffff" stroke="#7928ca"/>
+    <text class="chip" x="959" y="71" fill="#7928ca" text-anchor="middle">UQ</text>
+    <text class="lbl" x="978" y="71">unique</text>
+
+    <rect x="1038" y="60" width="18" height="15" rx="7.5" fill="#ffffff" stroke="#8f8f8f"/>
+    <text class="chip" x="1047" y="71" fill="#8f8f8f" text-anchor="middle">?</text>
+    <text class="lbl" x="1062" y="71">nullable</text>
+  </g>
+
+  <!-- ================= User ================= -->
+  <g>
+    <rect class="card" x="60" y="130" width="320" height="262" rx="12"/>
+    <text class="entity" x="76" y="158">User</text>
+    <text class="tbl" x="364" y="157" text-anchor="end">TABLE</text>
+    <line x1="61" y1="174" x2="379" y2="174" stroke="#ebebeb"/>
+
+    <rect class="zebra" x="61" y="200" width="318" height="26"/>
+    <rect class="zebra" x="61" y="252" width="318" height="26"/>
+    <rect class="zebra" x="61" y="304" width="318" height="26"/>
+    <rect class="zebra" x="61" y="356" width="318" height="26"/>
+
+    <!-- id -->
+    <text class="fname" x="76" y="191">id</text>
+    <rect x="99" y="179.5" width="26" height="15" rx="7.5" fill="#171717"/>
+    <text class="chip" x="112" y="190.5" fill="#ffffff" text-anchor="middle">PK</text>
+    <text class="ftype" x="364" y="191" text-anchor="end">String · uuid</text>
+    <!-- email -->
+    <text class="fname" x="76" y="217">email</text>
+    <rect x="121" y="205.5" width="26" height="15" rx="7.5" fill="#ffffff" stroke="#7928ca"/>
+    <text class="chip" x="134" y="216.5" fill="#7928ca" text-anchor="middle">UQ</text>
+    <text class="ftype" x="364" y="217" text-anchor="end">String</text>
+    <!-- name -->
+    <text class="fname" x="76" y="243">name</text>
+    <text class="ftype" x="364" y="243" text-anchor="end">String</text>
+    <!-- password -->
+    <text class="fname" x="76" y="269">password</text>
+    <text class="ftype" x="364" y="269" text-anchor="end">String · bcrypt</text>
+    <!-- isGoogle -->
+    <text class="fname" x="76" y="295">isGoogle</text>
+    <text class="ftype" x="364" y="295" text-anchor="end">Boolean = false</text>
+    <!-- createdAt -->
+    <text class="fname" x="76" y="321">createdAt</text>
+    <text class="ftype" x="364" y="321" text-anchor="end">DateTime = now()</text>
+    <!-- updatedAt -->
+    <text class="fname" x="76" y="347">updatedAt</text>
+    <text class="ftype" x="364" y="347" text-anchor="end">DateTime · auto</text>
+    <!-- consultations -->
+    <text class="frel" x="76" y="373">consultations</text>
+    <text class="ftype" x="364" y="373" text-anchor="end">Consultation[]</text>
+  </g>
+
+  <!-- ================= Consultation ================= -->
+  <g>
+    <rect class="card" x="460" y="130" width="320" height="236" rx="12"/>
+    <text class="entity" x="476" y="158">Consultation</text>
+    <text class="tbl" x="764" y="157" text-anchor="end">TABLE</text>
+    <line x1="461" y1="174" x2="779" y2="174" stroke="#ebebeb"/>
+
+    <rect class="zebra" x="461" y="200" width="318" height="26"/>
+    <rect class="zebra" x="461" y="252" width="318" height="26"/>
+    <rect class="zebra" x="461" y="304" width="318" height="26"/>
+
+    <!-- id -->
+    <text class="fname" x="476" y="191">id</text>
+    <rect x="499" y="179.5" width="26" height="15" rx="7.5" fill="#171717"/>
+    <text class="chip" x="512" y="190.5" fill="#ffffff" text-anchor="middle">PK</text>
+    <text class="ftype" x="764" y="191" text-anchor="end">String · uuid</text>
+    <!-- userId -->
+    <text class="fname" x="476" y="217">userId</text>
+    <rect x="529" y="205.5" width="26" height="15" rx="7.5" fill="#ffffff" stroke="#0070f3"/>
+    <text class="chip" x="542" y="216.5" fill="#0070f3" text-anchor="middle">FK</text>
+    <text class="ftype" x="764" y="217" text-anchor="end">→ User.id</text>
+    <!-- title -->
+    <text class="fname" x="476" y="243">title</text>
+    <text class="ftype" x="764" y="243" text-anchor="end">String = "New consultation"</text>
+    <!-- status -->
+    <text class="fname" x="476" y="269">status</text>
+    <text class="ftype" x="764" y="269" text-anchor="end">String = "active"</text>
+    <!-- createdAt -->
+    <text class="fname" x="476" y="295">createdAt</text>
+    <text class="ftype" x="764" y="295" text-anchor="end">DateTime = now()</text>
+    <!-- updatedAt -->
+    <text class="fname" x="476" y="321">updatedAt</text>
+    <text class="ftype" x="764" y="321" text-anchor="end">DateTime · auto</text>
+    <!-- messages -->
+    <text class="frel" x="476" y="347">messages</text>
+    <text class="ftype" x="764" y="347" text-anchor="end">Message[]</text>
+  </g>
+
+  <!-- ================= Message ================= -->
+  <g>
+    <rect class="card" x="860" y="130" width="320" height="288" rx="12"/>
+    <text class="entity" x="876" y="158">Message</text>
+    <text class="tbl" x="1164" y="157" text-anchor="end">TABLE</text>
+    <line x1="861" y1="174" x2="1179" y2="174" stroke="#ebebeb"/>
+
+    <rect class="zebra" x="861" y="200" width="318" height="26"/>
+    <rect class="zebra" x="861" y="252" width="318" height="26"/>
+    <rect class="zebra" x="861" y="304" width="318" height="26"/>
+    <rect class="zebra" x="861" y="356" width="318" height="26"/>
+
+    <!-- id -->
+    <text class="fname" x="876" y="191">id</text>
+    <rect x="899" y="179.5" width="26" height="15" rx="7.5" fill="#171717"/>
+    <text class="chip" x="912" y="190.5" fill="#ffffff" text-anchor="middle">PK</text>
+    <text class="ftype" x="1164" y="191" text-anchor="end">String · uuid</text>
+    <!-- consultationId -->
+    <text class="fname" x="876" y="217">consultationId</text>
+    <rect x="984" y="205.5" width="26" height="15" rx="7.5" fill="#ffffff" stroke="#0070f3"/>
+    <text class="chip" x="997" y="216.5" fill="#0070f3" text-anchor="middle">FK</text>
+    <text class="ftype" x="1164" y="217" text-anchor="end">→ Consultation.id</text>
+    <!-- role -->
+    <text class="fname" x="876" y="243">role</text>
+    <text class="ftype" x="1164" y="243" text-anchor="end">"user" | "assistant"</text>
+    <!-- content -->
+    <text class="fname" x="876" y="269">content</text>
+    <text class="ftype" x="1164" y="269" text-anchor="end">String</text>
+    <!-- mediaType -->
+    <text class="fname" x="876" y="295">mediaType</text>
+    <text class="ftype" x="1164" y="295" text-anchor="end">String? · image|video</text>
+    <!-- mediaUrl -->
+    <text class="fname" x="876" y="321">mediaUrl</text>
+    <text class="ftype" x="1164" y="321" text-anchor="end">String? · /uploads/…</text>
+    <!-- audioUrl -->
+    <text class="fname" x="876" y="347">audioUrl</text>
+    <text class="ftype" x="1164" y="347" text-anchor="end">String? · TTS wav</text>
+    <!-- analysis -->
+    <text class="fname" x="876" y="373">analysis</text>
+    <text class="ftype" x="1164" y="373" text-anchor="end">String? · AI findings</text>
+    <!-- createdAt -->
+    <text class="fname" x="876" y="399">createdAt</text>
+    <text class="ftype" x="1164" y="399" text-anchor="end">DateTime = now()</text>
+  </g>
+
+  <!-- ============ connectors ============ -->
+  <!-- User.id 1 -> N Consultation.userId -->
+  <path class="conn" d="M 380 187 C 418 187, 422 213, 460 213"/>
+  <circle cx="380" cy="187" r="3" fill="#171717"/>
+  <line x1="460" y1="213" x2="449" y2="206" stroke="#171717" stroke-width="1.2"/>
+  <line x1="460" y1="213" x2="449" y2="213" stroke="#171717" stroke-width="1.2"/>
+  <line x1="460" y1="213" x2="449" y2="220" stroke="#171717" stroke-width="1.2"/>
+  <text class="cardlbl" x="390" y="181">1</text>
+  <text class="cardlbl" x="452" y="203" text-anchor="end">N</text>
+
+  <!-- Consultation.id 1 -> N Message.consultationId -->
+  <path class="conn" d="M 780 187 C 818 187, 822 213, 860 213"/>
+  <circle cx="780" cy="187" r="3" fill="#171717"/>
+  <line x1="860" y1="213" x2="849" y2="206" stroke="#171717" stroke-width="1.2"/>
+  <line x1="860" y1="213" x2="849" y2="213" stroke="#171717" stroke-width="1.2"/>
+  <line x1="860" y1="213" x2="849" y2="220" stroke="#171717" stroke-width="1.2"/>
+  <text class="cardlbl" x="790" y="181">1</text>
+  <text class="cardlbl" x="852" y="203" text-anchor="end">N</text>
+
+  <!-- footer -->
+  <text class="eyebrow" x="60" y="478">RELATIONS — USER 1─N CONSULTATION · CONSULTATION 1─N MESSAGE</text>
+  <text class="lbl" x="60" y="498">One user has many consultations; each consultation holds the full call transcript as ordered messages with optional media, AI findings and TTS audio.</text>
+</svg>

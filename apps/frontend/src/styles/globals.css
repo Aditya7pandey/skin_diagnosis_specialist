@@ -1,0 +1,829 @@
+/* ============================================================
+   Geist design system — tokens from DESIGN-vercel.md
+   ============================================================ */
+
+:root {
+  /* colors */
+  --primary: #171717;
+  --on-primary: #ffffff;
+  --ink: #171717;
+  --body: #4d4d4d;
+  --mute: #8f8f8f;
+  --faint: #a1a1a1;
+  --hairline: #ebebeb;
+  --hairline-soft: #f2f2f2;
+  --canvas: #fafafa;
+  --elevated: #ffffff;
+  --link: #0070f3;
+  --link-deep: #0761d1;
+  --link-soft: #d3e5ff;
+  --error: #ee0000;
+  --error-deep: #c50000;
+  --warning: #f5a623;
+  --warning-soft: #ffefcf;
+  --warning-deep: #ab570a;
+  --violet: #7928ca;
+  --cyan: #50e3c2;
+  --pink: #ff0080;
+  --magenta: #eb367f;
+  --g-develop-a: #007cf0;
+  --g-develop-b: #00dfd8;
+  --g-preview-a: #7928ca;
+  --g-preview-b: #ff0080;
+  --g-ship-a: #ff4d4d;
+  --g-ship-b: #f9cb28;
+
+  /* radius */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill-category: 64px;
+  --r-pill: 100px;
+  --r-full: 9999px;
+
+  /* spacing */
+  --sp-xxs: 4px;
+  --sp-xs: 8px;
+  --sp-sm: 12px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 32px;
+  --sp-2xl: 40px;
+  --sp-3xl: 64px;
+  --sp-4xl: 96px;
+  --sp-section: 128px;
+
+  /* elevation */
+  --shadow-1: 0px 1px 1px rgba(0, 0, 0, 0.04);
+  --shadow-2: 0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 16px -4px rgba(0, 0, 0, 0.08);
+
+  --font-sans: "Geist Sans", Inter, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+input,
+textarea {
+  font-family: var(--font-sans);
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+
+.display-xl {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.05em; /* -2.4px at 48px */
+}
+
+.heading-lg {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -0.04em; /* -1.28px at 32px */
+}
+
+.heading-md {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.02em; /* -0.4px at 20px */
+}
+
+.label-sm {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.body-lg {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.body-md {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.body-sm {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.text-body { color: var(--body); }
+.text-mute { color: var(--mute); }
+.text-faint { color: var(--faint); }
+
+@media (max-width: 640px) {
+  .display-xl {
+    font-size: 36px;
+    letter-spacing: -0.045em;
+  }
+  .heading-lg {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--sp-lg);
+}
+
+/* ============================================================
+   Buttons — pills for marketing, 6px squares for app chrome
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-xs);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  user-select: none;
+}
+
+/* marketing pills */
+.btn-pill {
+  height: 48px;
+  padding: 0 22px;
+  border-radius: var(--r-pill);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.btn-pill.sm {
+  height: 40px;
+  padding: 0 18px;
+  font-size: 14px;
+}
+
+/* app / nav squares */
+.btn-sq {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--r-sm);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.btn-sq.lg {
+  height: 40px;
+  padding: 0 16px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn-primary:hover {
+  background: #383838;
+}
+
+.btn-primary:disabled {
+  background: var(--hairline);
+  color: var(--faint);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--elevated);
+  color: var(--ink);
+  border-color: var(--hairline);
+}
+
+.btn-secondary:hover {
+  border-color: var(--faint);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--body);
+}
+
+.btn-ghost:hover {
+  background: var(--hairline-soft);
+  color: var(--ink);
+}
+
+.btn-danger-ghost {
+  background: var(--elevated);
+  color: var(--error);
+  border-color: var(--hairline);
+}
+
+.btn-danger-ghost:hover {
+  border-color: var(--error);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--r-full);
+  background: var(--elevated);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  border-color: var(--faint);
+}
+
+.btn-icon:disabled {
+  color: var(--faint);
+  cursor: not-allowed;
+}
+
+/* full-width variant for auth forms */
+.btn-block {
+  width: 100%;
+}
+
+/* ============================================================
+   Inputs
+   ============================================================ */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.input {
+  background: var(--elevated);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-sm);
+  padding: var(--sp-xs) var(--sp-sm);
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input::placeholder {
+  color: var(--faint);
+}
+
+.input:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+
+.card {
+  background: var(--elevated);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: var(--sp-lg);
+}
+
+.card-lg {
+  background: var(--elevated);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl);
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-2);
+}
+
+/* ============================================================
+   Nav / footer bands
+   ============================================================ */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--canvas);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.nav.static {
+  position: static;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-md);
+  height: 64px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xxs);
+}
+
+.nav-link {
+  color: var(--body);
+  font-size: 14px;
+  line-height: 20px;
+  padding: var(--sp-xs) var(--sp-sm);
+  border-radius: var(--r-full);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-link:hover {
+  background: var(--hairline-soft);
+  color: var(--ink);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xs);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.footer {
+  background: var(--canvas);
+  border-top: 1px solid var(--hairline);
+  padding: var(--sp-3xl) 0;
+  color: var(--body);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* ============================================================
+   Mesh gradient — the single decorative flourish
+   ============================================================ */
+
+.mesh-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mesh {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 920px;
+  height: 560px;
+  transform: translate(-50%, -50%);
+  filter: blur(72px);
+  opacity: 0.5;
+  background:
+    radial-gradient(closest-side at 28% 38%, var(--g-develop-a), transparent 72%),
+    radial-gradient(closest-side at 72% 28%, var(--g-preview-a), transparent 72%),
+    radial-gradient(closest-side at 58% 76%, var(--g-preview-b), transparent 70%),
+    radial-gradient(closest-side at 16% 78%, var(--g-develop-b), transparent 70%),
+    radial-gradient(closest-side at 88% 70%, var(--g-ship-b), transparent 72%);
+}
+
+/* ============================================================
+   Call orb — the assistant presence in a consultation
+   ============================================================ */
+
+.orb {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  border-radius: var(--r-full);
+  background: var(--elevated);
+  border: 1px solid var(--hairline);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.orb::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(closest-side at 30% 35%, var(--g-develop-a), transparent 70%),
+    radial-gradient(closest-side at 70% 30%, var(--g-preview-a), transparent 70%),
+    radial-gradient(closest-side at 60% 75%, var(--g-preview-b), transparent 70%),
+    radial-gradient(closest-side at 25% 75%, var(--g-develop-b), transparent 70%);
+  filter: blur(18px);
+  opacity: 0.35;
+  transition: opacity 0.4s ease;
+  animation: orb-drift 9s linear infinite;
+}
+
+.orb.speaking::before {
+  opacity: 0.95;
+  animation-duration: 4s;
+}
+
+.orb.thinking::before {
+  opacity: 0.65;
+  animation-duration: 2.2s;
+}
+
+.orb.listening {
+  border-color: var(--ink);
+}
+
+.orb.listening::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-full);
+  border: 2px solid var(--ink);
+  animation: orb-pulse 1.6s ease-out infinite;
+}
+
+@keyframes orb-drift {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orb-pulse {
+  0% {
+    transform: scale(0.94);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+/* mic button */
+.mic-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--r-full);
+  border: 1px solid transparent;
+  background: var(--primary);
+  color: var(--on-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.mic-btn:hover {
+  background: #383838;
+}
+
+.mic-btn:active {
+  transform: scale(0.96);
+}
+
+.mic-btn.recording {
+  background: var(--error);
+}
+
+.mic-btn.recording:hover {
+  background: var(--error-deep);
+}
+
+.mic-btn:disabled {
+  background: var(--hairline);
+  color: var(--faint);
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   Consultation room layout
+   ============================================================ */
+
+.room {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+}
+
+.call-panel {
+  border-right: 1px solid var(--hairline);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transcript-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--elevated);
+}
+
+@media (max-width: 860px) {
+  .room-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .call-panel {
+    border-right: none;
+    border-bottom: 1px solid var(--hairline);
+  }
+}
+
+/* ============================================================
+   Transcript
+   ============================================================ */
+
+.transcript {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.msg {
+  max-width: 78%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+.msg.user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.msg.assistant {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.bubble {
+  padding: var(--sp-sm) var(--sp-md);
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: var(--r-md);
+}
+
+.msg.user .bubble {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-bottom-right-radius: var(--r-sm);
+}
+
+.msg.assistant .bubble {
+  background: var(--elevated);
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+  border-bottom-left-radius: var(--r-sm);
+}
+
+.msg-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xs);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+
+.msg-media {
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--elevated);
+  max-width: 280px;
+}
+
+.msg-media img,
+.msg-media video {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.play-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hairline);
+  background: var(--elevated);
+  color: var(--body);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.play-chip:hover {
+  border-color: var(--faint);
+  color: var(--ink);
+}
+
+.play-chip.playing {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* typing / thinking indicator */
+.thinking-dots {
+  display: inline-flex;
+  gap: 5px;
+  padding: var(--sp-sm) var(--sp-md);
+  background: var(--elevated);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  border-bottom-left-radius: var(--r-sm);
+}
+
+.thinking-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--r-full);
+  background: var(--faint);
+  animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.thinking-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.thinking-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes dot-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* pending attachment chip */
+.attach-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-xs);
+  border: 1px solid var(--hairline);
+  background: var(--elevated);
+  border-radius: var(--r-sm);
+  padding: var(--sp-xxs) var(--sp-xs);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--body);
+  max-width: 260px;
+}
+
+.attach-chip img {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.attach-chip .x {
+  border: none;
+  background: none;
+  color: var(--mute);
+  display: inline-flex;
+  padding: 2px;
+}
+
+.attach-chip .x:hover {
+  color: var(--error);
+}
+
+/* ============================================================
+   Misc
+   ============================================================ */
+
+.hr {
+  border: none;
+  border-top: 1px solid var(--hairline);
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.25s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::selection {
+  background: var(--link-soft);
+}

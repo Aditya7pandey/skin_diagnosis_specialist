@@ -1,52 +1,22 @@
+import 'dotenv/config'
 import express from 'express'
+import cors from 'cors'
 import authRoutes from './routes/auth.routes'
+import consultationRoutes from './routes/consultation.routes'
+import { UPLOADS_DIR } from './lib/uploads'
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth',authRoutes);
-// app.use('/api/convertImgToText',);
+app.use('/uploads', express.static(UPLOADS_DIR));
+
+app.use('/api/auth', authRoutes);
+app.use('/api/consultations', consultationRoutes);
 
 const PORT = 5000;
 
-app.listen(PORT,()=>{
-    console.log("app is running in 5000")
+app.listen(PORT, () => {
+    console.log(`app is running in ${PORT}`);
 })
-
-// import dotenv from 'dotenv'
-// dotenv.config();
-// import Groq from "groq-sdk";
-
-// const groq = new Groq({
-//   apiKey: process.env.GROQ_API_KEY,
-// });
-
-// async function run(){
-
-
-// const response = await groq.chat.completions.create({
-//   model: "qwen/qwen3.6-27b",
-//   messages: [
-//     {
-//       role: "user",
-//       content: [
-//         {
-//           type: "text",
-//           text: "Analyze this image and describe what is happening in detail.",
-//         },
-//         {
-//           type: "image_url",
-//           image_url: {
-//             url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNxjZlNN9qGxvuQC1uvkAhdqHqegP6A9lmMhF60cXJ-Q&s",
-//           },
-//         },
-//       ],
-//     },
-//   ],
-// });
-
-// //@ts-ignore
-// console.log(response.choices[0].message.content);
-// }
-
-// run();

@@ -21,4 +21,29 @@ model User {
   isGoogle Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  consultations Consultation[]
+}
+
+model Consultation {
+  id String @id @default(uuid())
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  title String @default("New consultation")
+  status String @default("active")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  messages Message[]
+}
+
+model Message {
+  id String @id @default(uuid())
+  consultationId String
+  consultation Consultation @relation(fields: [consultationId], references: [id])
+  role String
+  content String
+  mediaType String?
+  mediaUrl String?
+  audioUrl String?
+  analysis String?
+  createdAt DateTime @default(now())
 }
