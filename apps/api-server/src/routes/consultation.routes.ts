@@ -10,6 +10,7 @@ import {
     getConsultation,
     sendMessage,
 } from "../controllers/consultation.controller";
+import rateLimitter from "../middleware/rateLimitter";
 
 const EXT_BY_MIME: Record<string, string> = {
     "audio/webm": ".webm",
@@ -45,7 +46,7 @@ const upload = multer({
 
 const router: Router = express.Router();
 
-router.post("/", authMiddleware, createConsultation);
+router.post("/", authMiddleware,rateLimitter, createConsultation);
 router.get("/", authMiddleware, listConsultations);
 router.get("/:id", authMiddleware, getConsultation);
 router.post(
